@@ -11,7 +11,8 @@ namespace QuanLyThuVien
         public string MaSach;
         public string TenSach;
         public NhaXuatBan NXB;
-        public string TacGia;       
+        public string TacGia;
+        public Sach() { }
 
         public Sach(string maSach, string tenSach, NhaXuatBan nxb, string tacGia)
         {
@@ -20,6 +21,12 @@ namespace QuanLyThuVien
             NXB = nxb;
             TacGia = tacGia;
         }
-        public Sach() { }
+        public override string ToString()
+        {
+            return $"Ma sach : {MaSach}\n" +
+                   $"Ten sach : {TenSach}\n" +
+                   $"Ten NXB : {NXB}" +
+                   $"Ten tac gia : {TacGia}\n" ;
+        }
     }
 }

@@ -11,11 +11,19 @@ namespace QuanLyThuVien
         public string MaSach;
         public int SoLuongBanSao;
 
+        public BanSaoSach() { }
+
         public BanSaoSach(string maSach, int soLuongBanSao)
         {
             MaSach = maSach;
             SoLuongBanSao = soLuongBanSao;
         }
-        public BanSaoSach() { }
-    }
+
+        public override string ToString()
+        { 
+            return $"Ma sach : {MaSach}\n" +
+                   $"So luong ban sao : {SoLuongBanSao}\n";
+        }
+
+}
 }

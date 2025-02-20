@@ -13,6 +13,9 @@ namespace QuanLyThuVien
         public string DiaChi;
         public string SoDienThoai;
 
+
+        public NguoiMuon() { }
+
         public NguoiMuon(string soThe, string hoTen, string diaChi, string soDienThoai)
         {
             SoThe = soThe;
@@ -20,6 +23,14 @@ namespace QuanLyThuVien
             DiaChi = diaChi;
             SoDienThoai = soDienThoai;
         }
-        public NguoiMuon() { }
+    
+        public override string ToString()
+        {
+            return $"So the : {SoThe}\n" +
+                   $"Ho ten : {HoTen}\n" +
+                   $"Dia chi : {DiaChi}\n" +
+                   $"So dien thoai : {SoDienThoai}";
+        }
+    
     }
 }

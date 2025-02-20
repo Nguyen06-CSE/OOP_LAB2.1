@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace QuanLyThuVien
@@ -12,6 +13,10 @@ namespace QuanLyThuVien
         public string TenChiNhanh;
         public string DiaChi;
 
+
+        public ChiNhanh() { }
+        
+        
         public ChiNhanh(string maChiNhanh, string tenChiNhanh, string diaChi)
         {
             MaChiNhanh = maChiNhanh;
@@ -19,8 +24,13 @@ namespace QuanLyThuVien
             DiaChi = diaChi;
         }
 
-        public ChiNhanh() 
+        public override string ToString()
         {
+            return $"Ma chi nhanh : {MaChiNhanh}\n" +
+                   $"Ten chi nhanh : {TenChiNhanh}\n" +
+                   $"Dia chi : {DiaChi}";
         }
+
+
     }
 }

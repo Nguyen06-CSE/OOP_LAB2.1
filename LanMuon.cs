@@ -8,18 +8,42 @@ namespace QuanLyThuVien
 {
     internal class LanMuon
     {
-        public string SoThe;
-        public string MaSach;  
+        public NguoiMuon NguoiMuon;
+        public List<Sach> DSSach;  
         public DateTime NgayMuon;
         public DateTime NgayTra;
 
-        public LanMuon(string soThe, string maSach, DateTime ngayMuon, DateTime ngayTra)
+        public LanMuon() { }
+
+        public LanMuon(NguoiMuon nm)
         {
-            SoThe = soThe;
-            MaSach = maSach;
-            NgayMuon = ngayMuon;
+            NguoiMuon = nm;
+            DSSach = new List<Sach>();
+            NgayMuon = DateTime.Now;
+            NgayTra = DateTime.Now.AddDays(7);
+        }
+
+        public void ThemSachVaoDSSach(Sach sach)
+        {
+            DSSach.Add(sach);
+        }
+
+        public void TraTruocHan(DateTime ngayTra)
+        {
             NgayTra = ngayTra;
         }
-        public LanMuon() { }
+
+        public override string ToString()
+        {
+            string sachList = DSSach.Count > 0
+                ? string.Join(", ", DSSach.Select(s => s.TenSach))
+                : "khong co sach";
+
+            return $"Nguoi Muon : {NguoiMuon.HoTen}\n" +
+                   $"Danh sach sach : {sachList}\n" +
+                   $"Nguay muon : {NgayMuon:dd/MM/yyyy}\n" +
+                   $"Ngay tra : {NgayTra:dd/MM/yyyy}";
+        }
+
     }
 }
