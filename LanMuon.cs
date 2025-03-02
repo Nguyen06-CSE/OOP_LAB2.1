@@ -23,14 +23,14 @@ namespace QuanLyThuVien
             NgayTra = DateTime.Now.AddDays(7);
         }
 
-        public void ThemSachVaoDSSach(Sach sach)
+        public void ThemSachMuon(Sach sach)
         {
             DSSach.Add(sach);
         }
 
-        public void TraTruocHan(DateTime ngayTra)
+        public void TraSach()
         {
-            NgayTra = ngayTra;
+            NgayTra = DateTime.Now;
         }
 
         public override string ToString()
@@ -43,6 +43,15 @@ namespace QuanLyThuVien
                    $"Danh sach sach : {sachList}\n" +
                    $"Nguay muon : {NgayMuon:dd/MM/yyyy}\n" +
                    $"Ngay tra : {NgayTra:dd/MM/yyyy}";
+        }
+
+        public void XuatThongTin()
+        {
+            Console.WriteLine($"Nguoi Muon : {NguoiMuon.HoTen}\n" +
+                   $"Nguay muon : {NgayMuon:dd/MM/yyyy}\n" +
+                   $"Ngay tra : {NgayTra:dd/MM/yyyy}");
+            Console.WriteLine("Danh sach sach da muon");
+            foreach (Sach sach in DSSach) { Console.WriteLine(sach); }
         }
 
     }
